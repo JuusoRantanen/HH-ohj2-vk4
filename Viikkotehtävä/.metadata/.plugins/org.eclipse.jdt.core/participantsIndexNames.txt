@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+/Users/juusorantanen/Desktop/Haaga-Helia/Ohjelmointi 2/Viikko4/Viikkotehtävä/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2945235410.index
+/Myynti/src/main/java
+/Users/juusorantanen/Desktop/Haaga-Helia/Ohjelmointi 2/Viikko4/Viikkotehtävä/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2710919557.index
+/Myynti/src/main/java

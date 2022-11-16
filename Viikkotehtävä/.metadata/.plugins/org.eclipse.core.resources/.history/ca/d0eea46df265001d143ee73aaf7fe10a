@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span id="ilmo"></span>
+
+
+
+<script>
+function haeAsiakkaat() {
+	let url = "asiakkaat";
+	
+	let requestOptions = {
+	        method: "GET",
+	        headers: { "Content-Type": "application/x-www-form-urlencoded" }       
+	    };    
+	    fetch(url, requestOptions)
+	    .then(response => response.json())//Muutetaan vastausteksti JSON-objektiksi 
+	   	.then(response => document.getElementById("ilmo").innerHTML=response) 
+	   	.catch(errorText => console.error("Fetch failed: " + errorText));
+	}
+haeAsiakkaat();
+</script>
+</body>
+</html>

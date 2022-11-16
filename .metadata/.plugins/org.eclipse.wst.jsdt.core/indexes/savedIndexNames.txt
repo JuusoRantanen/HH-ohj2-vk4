@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/Users/juusorantanen/Desktop/Haaga-Helia/Ohjelmointi 2/Viikko4/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1114085135.index
+3039955203.index
+2339339590.index
+1077410167.index
+3370017077.index
+3069326963.index
