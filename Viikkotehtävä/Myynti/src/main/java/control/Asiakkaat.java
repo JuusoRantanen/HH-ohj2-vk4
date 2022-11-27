@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,9 +49,20 @@ public class Asiakkaat extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Asiakkaat.doPost()");
-		
-	}
+			System.out.println("Asiakkaat.doPost()");
+			//Luetaan JSON-tiedot POST-pyynn�n bodysta ja luodaan niiden perusteella uusi auto
+			String strJSONInput = request.getReader().lines().collect(Collectors.joining());
+			Asiakas asiakas = new Gson().fromJson(strJSONInput, Asiakas.class);	
+			//System.out.println(auto);
+			Dao dao = new Dao();
+			response.setContentType("application/json; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			if(dao.addItem(asiakas)) {
+				out.println("{\"response\":1}");  
+			}else {
+				out.println("{\"response\":0}");
+			}
+		}
 
 	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,7 +71,17 @@ public class Asiakkaat extends HttpServlet {
 
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Asiakkaat.doDelete()");
+			System.out.println("Asiakkaat.doDelete()");
+			int id = Integer.parseInt(request.getParameter("asiakas_id"));
+			Dao dao = new Dao();
+			response.setContentType("application/json; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			if(dao.removeItem(id)) {
+				out.println("{\"response\":1}");
+			}else {
+				out.println("{\"response\":0}");
+			}
+		}
+
 	}
 
-}
